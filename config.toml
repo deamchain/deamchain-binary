@@ -1,0 +1,202 @@
+[Node]
+DataDir = "/root/galaxy"
+IPCPath = "galaxy.ipc"
+HTTPHost = "0.0.0.0"
+HTTPPort = 18889
+HTTPCors = ["*"]
+HTTPVirtualHosts = ["*"]
+HTTPModules = ["eth", "debug", "net", "admin", "web3", "personal", "txpool", "deam", "dag"]
+WSHost = ""
+WSPort = 18890
+WSModules = ["eth", "deam", "dag", "sfc", "abft", "web3"]
+GraphQLVirtualHosts = ["localhost"]
+
+[Node.P2P]
+MaxPeers = 128
+MaxPendingPeers = 128
+NoDiscovery = false
+DiscoveryV5 = true
+BootstrapNodes = ["enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.43.238:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.124.81:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.2.89:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.141.55:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.21.89.25:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@95.217.205.113:18888"]
+BootstrapNodesV5 = ["enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.43.238:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.124.81:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.2.89:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.108.141.55:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@65.21.89.25:18888", "enode://8c7ab07ba269364af68bc957ad32a7e2e01b5f19bbd9c1da4eedab2c4c140b4d95dae799913775b809e6d51a7662af04f0ff9ca934fb88e5188848234b4e2a36@95.217.205.113:18888"]
+StaticNodes = []
+TrustedNodes = []
+ListenAddr = ":18888"
+EnableMsgEvents = false
+
+[Node.HTTPTimeouts]
+ReadTimeout = 30000000000
+WriteTimeout = 30000000000
+IdleTimeout = 120000000000
+
+[Galaxy]
+TxIndex = true
+RPCGasCap = 25000000
+RPCTxFeeCap = 1e+02
+AllowUnprotectedTxs = false
+ExtRPCEnabled = false
+RPCLogsBloom = true
+
+[Galaxy.Emitter]
+VersionToPublish = "1.0.2-rc.5"
+MaxTxsPerAddress = 32
+MaxParents = 0
+LimitedTpsThreshold = 3360000
+NoTxsThreshold = 840000
+EmergencyThreshold = 140000
+TxsCacheInvalidation = 200000000
+
+[Galaxy.Emitter.Validator]
+ID = 0
+
+[Galaxy.Emitter.Validator.PubKey]
+Type = 0
+Raw = []
+
+[Galaxy.Emitter.EmitIntervals]
+Min = 110000000
+Max = 600000000000
+Confirming = 120000000
+ParallelInstanceProtection = 60000000000
+DoublesignProtection = 1620000000000
+
+[Galaxy.Emitter.PrevEmittedEventFile]
+Path = ""
+SyncMode = false
+
+[Galaxy.TxPool]
+Locals = []
+NoLocals = false
+Journal = "transactions.rlp"
+Rejournal = 3600000000000
+PriceLimit = 1
+PriceBump = 10
+AccountSlots = 16
+GlobalSlots = 1024
+AccountQueue = 32
+GlobalQueue = 8192
+Lifetime = 10800000000000
+
+[Galaxy.FilterAPI]
+IndexedLogsBlockRangeLimit = 999999999999999999
+UnindexedLogsBlockRangeLimit = 100
+
+[Galaxy.Protocol]
+LatencyImportance = 60
+ThroughputImportance = 40
+MsgsSemaphoreTimeout = 10000000000
+ProgressBroadcastPeriod = 10000000000
+MaxInitialTxHashesSend = 20000
+MaxRandomTxHashesSend = 128
+RandomTxHashesSendPeriod = 20000000000
+
+[Galaxy.Protocol.EventsSemaphoreLimit]
+Num = 10000
+Size = 31457280
+
+[Galaxy.Protocol.MsgsSemaphoreLimit]
+Num = 1000
+Size = 31457280
+
+[Galaxy.Protocol.Processor]
+EventsSemaphoreTimeout = 10000000000
+MaxUnorderedInsertions = 0
+
+[Galaxy.Protocol.Processor.EventsBufferLimit]
+Num = 3250
+Size = 11534336
+
+[Galaxy.Protocol.DagFetcher]
+ForgetTimeout = 60000000000
+ArriveTimeout = 4000000000
+GatherSlack = 100000000
+HashLimit = 10000
+MaxBatch = 512
+MaxParallelRequests = 192
+MaxQueuedBatches = 32
+
+[Galaxy.Protocol.TxFetcher]
+ForgetTimeout = 60000000000
+ArriveTimeout = 1000000000
+GatherSlack = 100000000
+HashLimit = 10000
+MaxBatch = 512
+MaxParallelRequests = 64
+MaxQueuedBatches = 32
+
+[Galaxy.Protocol.StreamLeecher]
+RecheckInterval = 1000000000
+BaseProgressWatchdog = 5000000000
+BaseSessionWatchdog = 150000000000
+MinSessionRestart = 5000000000
+MaxSessionRestart = 240000000000
+
+[Galaxy.Protocol.StreamLeecher.Session]
+RecheckInterval = 10000000
+ParallelChunksDownload = 6
+
+[Galaxy.Protocol.StreamLeecher.Session.DefaultChunkSize]
+Num = 500
+Size = 524288
+
+[Galaxy.Protocol.StreamSeeder]
+SenderThreads = 8
+MaxSenderTasks = 128
+MaxPendingResponsesSize = 67108864
+MaxResponseChunks = 12
+
+[Galaxy.Protocol.PeerCache]
+MaxKnownTxs = 24576
+MaxKnownEvents = 24576
+MaxQueuedItems = 4096
+MaxQueuedSize = 10486784
+
+[Galaxy.HeavyCheck]
+MaxQueuedBatches = 128
+MaxBatch = 8
+Threads = 0
+
+[Galaxy.GPO]
+MaxPrice = 1000000000000000
+MinPrice = 0
+MaxPriceMultiplierRatio = 20000000
+MiddlePriceMultiplierRatio = 4000000
+GasPowerWallRatio = 50000
+
+[Galaxy.VersionWatcher]
+ShutDownIfNotUpgraded = false
+WarningIfNotUpgradedEvery = 5000000000
+
+[GalaxyStore]
+MaxNonFlushedSize = 23068672
+MaxNonFlushedPeriod = 1800000000000
+
+[GalaxyStore.Cache]
+EventsNum = 5000
+EventsSize = 6291456
+BlocksNum = 5000
+BlocksSize = 524288
+
+[GalaxyStore.EVM]
+EnableSnapshots = true
+EnablePreimageRecording = true
+
+[GalaxyStore.EVM.Cache]
+ReceiptsSize = 4194304
+ReceiptsBlocks = 4000
+TxPositions = 20000
+EvmDatabase = 33554432
+EvmSnap = 33554432
+EvmBlocksNum = 5000
+EvmBlocksSize = 6291456
+
+[LachesisStore.Cache]
+RootsNum = 1000
+RootsFrames = 100
+
+[VectorClock.Fc.Caches]
+ForklessCausePairs = 20000
+HighestBeforeSeqSize = 163840
+LowestAfterSeqSize = 163840
+
+[VectorClock.Caches]
+HighestBeforeTimeSize = 163840
